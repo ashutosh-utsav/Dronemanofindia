@@ -1,0 +1,79 @@
+/* src/pages/Contact.css */
+
+.contact-container {
+  max-width: 600px;
+  margin: 6rem auto;
+  padding: 3rem;
+  background-color: var(--bg-surface);
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.form-input {
+  padding: 0.9rem 1.2rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 0 1px var(--brand-accent);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--text-primary);
+  color: var(--bg-main);
+  font-weight: 600;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #e5e5e5;
+  transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+  background-color: #333;
+  color: #888;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.success-message {
+  background-color: var(--brand-glow);
+  color: var(--brand-accent);
+  padding: 1.2rem;
+  border-radius: 8px;
+  border: 1px solid var(--brand-accent);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
