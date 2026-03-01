@@ -27,7 +27,7 @@ export default function EventDetail() {
   if (!event) return <div className="page-wrapper" style={{textAlign: 'center'}}>Event not found.</div>;
 
   const imageUrl = event.image 
-    ? `http://127.0.0.1:8090/api/files/${event.collectionId}/${event.id}/${event.image}`
+    ? `https://render-droneman-1.onrender.com/api/files/${event.collectionId}/${event.id}/${event.image}`
     : '';
 
   return (
