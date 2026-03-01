@@ -6,4 +6,6 @@ import PocketBase from 'pocketbase';
 
 const pb = new PocketBase('https://render-droneman-1.onrender.com');
 
+// const pb = new PocketBase('https://render-droneman-production.up.railway.app');
+
 export default pb;

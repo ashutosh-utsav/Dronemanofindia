@@ -13,9 +13,9 @@ export default function Events() {
   const [loading, setLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
   
-  // Get active filter from URL or default to 'All'
   const activeFilter = searchParams.get('type') || 'All';
 
+  // 1. Fetch the data
   useEffect(() => {
     async function fetchEvents() {
       try {
@@ -31,6 +31,29 @@ export default function Events() {
     }
     fetchEvents();
   }, []);
+
+  // 2. The Framing Scroll Logic
+  useEffect(() => {
+    if (searchParams.has('type')) {
+      // If a specific filter is clicked from the menu, scroll to frame it
+      setTimeout(() => {
+        const element = document.getElementById('filter-target');
+        if (element) {
+          const headerOffset = 120; // Accounts for your sticky header
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      }, 100); // 100ms delay ensures the DOM is painted before scrolling
+    } else {
+      // If they just clicked "All Events", ensure they start at the top
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [searchParams]); // Re-runs whenever the URL changes
 
   const handleFilterChange = (category: string) => {
     if (category === 'All') {
@@ -48,7 +71,8 @@ export default function Events() {
     <div className="page-container">
       <h1 className="page-title">Events & Programs</h1>
       
-      <div className="filter-container">
+      {/* We add an ID here so the Javascript knows exactly where to scroll */}
+      <div id="filter-target" className="filter-container">
         {EVENT_CATEGORIES.map(category => (
           <button 
             key={category}
@@ -66,7 +90,7 @@ export default function Events() {
         <div className="card-grid">
           {displayedEvents.map((event) => {
             const imageUrl = event.image 
-              ? `http://127.0.0.1:8090/api/files/${event.collectionId}/${event.id}/${event.image}`
+              ? `https://render-droneman-1.onrender.com/api/files/${event.collectionId}/${event.id}/${event.image}`
               : '';
             return (
               <Card 

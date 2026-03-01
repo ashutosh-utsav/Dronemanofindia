@@ -6,7 +6,7 @@ import Card from '../components/ui/Card';
 import './KnowledgeCentre.css';
 import './Events.css';
 
-const CATEGORIES = ['All', 'Research Paper', 'Invention', 'Case Study', 'Technical Handbook'];
+const CATEGORIES = ['All', 'Research Paper', 'Invention History', 'Case Study', 'Technical Handbook'];
 
 export default function KnowledgeCentre() {
   const [resources, setResources] = useState<KnowledgeResource[]>([]);
@@ -15,6 +15,7 @@ export default function KnowledgeCentre() {
 
   const activeFilter = searchParams.get('type') || 'All';
 
+  // 1. Fetch the data
   useEffect(() => {
     async function fetchResources() {
       try {
@@ -30,6 +31,27 @@ export default function KnowledgeCentre() {
     }
     fetchResources();
   }, []);
+
+  // 2. The Framing Scroll Logic
+  useEffect(() => {
+    if (searchParams.has('type')) {
+      setTimeout(() => {
+        const element = document.getElementById('filter-target');
+        if (element) {
+          const headerOffset = 120; // Accounts for your sticky header
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      }, 100);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [searchParams]);
 
   const handleFilterChange = (category: string) => {
     if (category === 'All') {
@@ -47,7 +69,8 @@ export default function KnowledgeCentre() {
     <div className="page-container">
       <h1 className="page-title">Knowledge Centre</h1>
       
-      <div className="filter-container">
+      {/* Target ID for the auto-scroll */}
+      <div id="filter-target" className="filter-container">
         {CATEGORIES.map(category => (
           <button 
             key={category}
@@ -65,7 +88,7 @@ export default function KnowledgeCentre() {
         <div className="card-grid">
           {displayedResources.map((resource) => {
             const imageUrl = resource.thumbnail 
-              ? `http://127.0.0.1:8090/api/files/${resource.collectionId}/${resource.id}/${resource.thumbnail}`
+              ? `https://render-droneman-1.onrender.com/api/files/${resource.collectionId}/${resource.id}/${resource.thumbnail}`
               : '';
             return (
               <Card 

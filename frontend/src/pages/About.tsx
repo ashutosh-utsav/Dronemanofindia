@@ -49,7 +49,7 @@ export default function About() {
           <div className="team-grid">
             {team.map((member) => {
               const photoUrl = member.photo 
-                ? `http://127.0.0.1:8090/api/files/${member.collectionId}/${member.id}/${member.photo}`
+                ? `https://render-droneman-1.onrender.com/api/files/${member.collectionId}/${member.id}/${member.photo}`
                 : '';
               return (
                 <div key={member.id} className="team-card">
