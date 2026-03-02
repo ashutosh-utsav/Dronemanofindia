@@ -1,31 +1,37 @@
 import { useEffect, useState } from 'react';
 import pb from '../api/pocketbase';
-import type { TeamMember } from '../types';
+import type { TeamMember, SuccessStory } from '../types'; 
+import Card from '../components/ui/Card'; 
 import './About.css';
+import './Events.css'; 
 
 export default function About() {
   const [team, setTeam] = useState<TeamMember[]>([]);
+  const [stories, setStories] = useState<SuccessStory[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchTeam() {
+    async function fetchData() {
       try {
-        const records = await pb.collection('team_members').getFullList<TeamMember>({
-          sort: '+created',
-        });
-        setTeam(records);
+        const [teamRecords, storyRecords] = await Promise.all([
+          pb.collection('team_members').getFullList<TeamMember>({ sort: '+created' }),
+          pb.collection('success_stories').getFullList<SuccessStory>({ sort: '-created' })
+        ]);
+        
+        setTeam(teamRecords);
+        setStories(storyRecords);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching team:", error);
+        console.error("Error fetching data:", error);
         setLoading(false);
       }
     }
-    fetchTeam();
+    fetchData();
   }, []);
 
   return (
     <div className="about-container">
-      {/* MISSION SECTION */}
+      {/* 1. MISSION */}
       <section id="mission" className="page-wrapper" style={{ textAlign: 'center' }}>
         <div className="section-header">
           <h1 className="gradient-text">Our Mission</h1>
@@ -36,7 +42,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* TEAM SECTION */}
+      {/* 2. THE TEAM */}
       <section id="team" className="page-wrapper centered-section" style={{ background: 'var(--bg-surface)', borderRadius: '40px', margin: '4rem auto' }}>
         <div className="section-header" style={{ textAlign: 'center' }}>
           <h2 className="gradient-text">The Team</h2>
@@ -48,9 +54,9 @@ export default function About() {
         ) : (
           <div className="team-grid">
             {team.map((member) => {
-              const photoUrl = member.photo 
-                ? `https://render-droneman-1.onrender.com/api/files/${member.collectionId}/${member.id}/${member.photo}`
-                : '';
+              // Built-in foolproof PocketBase URL generator
+              const photoUrl = member.photo ? pb.files.getUrl(member, member.photo) : '';
+              
               return (
                 <div key={member.id} className="team-card">
                   <div className="team-photo-container">
@@ -66,29 +72,33 @@ export default function About() {
         )}
       </section>
 
-      {/* IMPACT SECTION */}
+      {/* 3. OUR IMPACT */}
       <section id="impact" className="page-wrapper" style={{ textAlign: 'center' }}>
         <div className="section-header">
           <h2 className="gradient-text">Our Impact</h2>
-          <p className="centered-subtitle">Measurable progress in India's aerospace landscape.</p>
+          <p className="centered-subtitle">Empowering the next generation of leaders and innovators.</p>
         </div>
-        <div className="focus-grid" style={{ marginTop: '4rem' }}>
-          <div className="focus-card">
-            <div className="focus-icon">🚀</div>
-            <h3>50+ Projects</h3>
-            <p>Successfully deployed indigenous drone solutions across various sectors.</p>
+
+        {stories.length > 0 && (
+          <div className="card-grid" style={{ marginTop: '3rem', textAlign: 'left' }}>
+            {stories.map((story) => {
+              // Built-in foolproof PocketBase URL generator
+              // *IMPORTANT*: If your column is named 'photo' instead of 'image', change this!
+              const imageUrl = story.image ? pb.files.getUrl(story, story.image) : '';
+
+              return (
+                <Card 
+                  key={story.id}
+                  id={story.id}
+                  title={story.title}
+                  subtitle={`Featuring: ${story.name}`}
+                  imageUrl={imageUrl}
+                  linkPrefix="impact" 
+                />
+              );
+            })}
           </div>
-          <div className="focus-card">
-            <div className="focus-icon">🎓</div>
-            <h3>1000+ Students</h3>
-            <p>Empowered through specialized workshops and training programs.</p>
-          </div>
-          <div className="focus-card">
-            <div className="focus-icon">🏆</div>
-            <h3>12 Patents</h3>
-            <p>Developing unique intellectual property in flight control systems.</p>
-          </div>
-        </div>
+        )}
       </section>
     </div>
   );

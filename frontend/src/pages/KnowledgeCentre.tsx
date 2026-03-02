@@ -88,7 +88,7 @@ export default function KnowledgeCentre() {
         <div className="card-grid">
           {displayedResources.map((resource) => {
             const imageUrl = resource.thumbnail 
-              ? `https://render-droneman-1.onrender.com/api/files/${resource.collectionId}/${resource.id}/${resource.thumbnail}`
+              ? `https://cms.dronemanofindia.com/api/files/${resource.collectionId}/${resource.id}/${resource.thumbnail}`
               : '';
             return (
               <Card 

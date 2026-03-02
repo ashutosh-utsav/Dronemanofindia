@@ -85,7 +85,7 @@ export default function Home() {
           <div className="card-grid">
             {featuredEvents.map((event) => {
               const imageUrl = event.image 
-                ? `http://127.0.0.1:8090/api/files/${event.collectionId}/${event.id}/${event.image}`
+                ? `https://cms.dronemanofindia.com/api/files/${event.collectionId}/${event.id}/${event.image}`
                 : '';
 
               return (

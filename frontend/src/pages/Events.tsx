@@ -90,7 +90,7 @@ export default function Events() {
         <div className="card-grid">
           {displayedEvents.map((event) => {
             const imageUrl = event.image 
-              ? `https://render-droneman-1.onrender.com/api/files/${event.collectionId}/${event.id}/${event.image}`
+              ? `https://cms.dronemanofindia.com/api/files/${event.collectionId}/${event.id}/${event.image}`
               : '';
             return (
               <Card 

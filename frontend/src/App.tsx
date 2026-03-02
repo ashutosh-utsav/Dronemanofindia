@@ -8,6 +8,7 @@ import KnowledgeCentre from './pages/KnowledgeCentre';
 import Contact from './pages/Contact';
 import EventDetail from './pages/EventDetail';
 import KnowledgeDetail from './pages/KnowledgeDetail';
+import ImpactDetail from './pages/ImpactDetail';
 
 export default function App() {
   return (
@@ -23,6 +24,8 @@ export default function App() {
     
           <Route path="/events/:id" element={<EventDetail />} />
           <Route path="/knowledge-centre/:id" element={<KnowledgeDetail />} />
+
+          <Route path="/impact/:id" element={<ImpactDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>
