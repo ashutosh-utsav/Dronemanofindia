@@ -6,8 +6,7 @@ import EventCard from '../components/ui/EventCard';
 import './Events.css'; 
 import './KnowledgeCentre.css'; 
 
-// Updated Categories to match your request exactly
-const EVENT_CATEGORIES = ['All', 'Events', 'Conferences', 'Meetups', 'Workshop', 'Competition'];
+const EVENT_CATEGORIES = ['All', 'Conferences', 'Meetups', 'Workshop', 'Competition'];
 
 export default function Events() {
   const [events, setEvents] = useState<DroneEvent[]>([]);
@@ -60,13 +59,22 @@ export default function Events() {
     }
   };
 
+  // THE FIX: The Smart Filter
+  // This removes the 's' from both the CMS data and the button name so they always match
+  // (e.g., "Conferences" and "Conference" both become "conference")
   const displayedEvents = activeFilter === 'All' 
     ? events 
-    : events.filter(event => event.type === activeFilter);
+    : events.filter(event => {
+        if (!event.type) return false;
+        
+        const dbType = event.type.toLowerCase().trim().replace(/s$/, '');
+        const filterType = activeFilter.toLowerCase().trim().replace(/s$/, '');
+        
+        return dbType === filterType;
+      });
 
   return (
     <div className="page-container">
-      {/* Updated Heading & Subtitle */}
       <h1 className="page-title">Events & Programs</h1>
       <p style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto 3rem auto' }}>
         Workshops, training sessions, and innovation programs that empower students to learn AI and drone technologies
@@ -86,6 +94,8 @@ export default function Events() {
 
       {loading ? (
         <p style={{ textAlign: 'center', color: 'var(--text-muted)' }}>Loading events...</p>
+      ) : displayedEvents.length === 0 ? (
+        <p style={{ textAlign: 'center', color: 'var(--text-muted)' }}>Coming soon...</p>
       ) : (
         <div className="card-grid">
           {displayedEvents.map((event) => {
@@ -100,7 +110,7 @@ export default function Events() {
                 type={event.type}
                 description={event.description}
                 date={event.date}
-                time={event.time} /* Requires adding 'time' to your CMS */
+                time={event.time} 
                 location={event.location}
                 imageUrl={imageUrl}
               />

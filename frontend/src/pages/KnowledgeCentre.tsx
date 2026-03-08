@@ -1,12 +1,14 @@
+// frontend/src/pages/KnowledgeCentre.tsx
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import pb from '../api/pocketbase';
 import type { KnowledgeResource } from '../types';
 import Card from '../components/ui/Card';
+import GalleryGrid from '../components/ui/GalleryGrid'; // <-- Imported our new component
 import './KnowledgeCentre.css';
 import './Events.css';
 
-const CATEGORIES = ['All', 'Research Paper', 'Invention History', 'Case Study', 'Technical Handbook'];
+const CATEGORIES = ['All', 'Mentor', 'Case Study', 'Gallery'];
 
 export default function KnowledgeCentre() {
   const [resources, setResources] = useState<KnowledgeResource[]>([]);
@@ -15,7 +17,6 @@ export default function KnowledgeCentre() {
 
   const activeFilter = searchParams.get('type') || 'All';
 
-  // 1. Fetch the data
   useEffect(() => {
     async function fetchResources() {
       try {
@@ -32,13 +33,12 @@ export default function KnowledgeCentre() {
     fetchResources();
   }, []);
 
-  // 2. The Framing Scroll Logic
   useEffect(() => {
     if (searchParams.has('type')) {
       setTimeout(() => {
         const element = document.getElementById('filter-target');
         if (element) {
-          const headerOffset = 120; // Accounts for your sticky header
+          const headerOffset = 120; 
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
           
@@ -69,7 +69,6 @@ export default function KnowledgeCentre() {
     <div className="page-container">
       <h1 className="page-title">Knowledge Centre</h1>
       
-      {/* Target ID for the auto-scroll */}
       <div id="filter-target" className="filter-container">
         {CATEGORIES.map(category => (
           <button 
@@ -82,8 +81,13 @@ export default function KnowledgeCentre() {
         ))}
       </div>
 
-      {loading ? (
+      {/* THE TRAFFIC COP LOGIC */}
+      {activeFilter === 'Gallery' ? (
+        <GalleryGrid /> // If it's the gallery, show our new component
+      ) : loading ? (
         <p style={{ textAlign: 'center', color: 'var(--text-muted)' }}>Loading resources...</p>
+      ) : displayedResources.length === 0 ? (
+        <p style={{ textAlign: 'center', color: 'var(--text-muted)' }}>No resources found for this category yet.</p>
       ) : (
         <div className="card-grid">
           {displayedResources.map((resource) => {
@@ -95,7 +99,7 @@ export default function KnowledgeCentre() {
                 key={resource.id}
                 id={resource.id}
                 title={resource.title}
-                subtitle={resource.summary}
+                subtitle={resource.summary} 
                 imageUrl={imageUrl}
                 linkPrefix="knowledge-centre"
               />

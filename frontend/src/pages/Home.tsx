@@ -88,7 +88,7 @@ export default function Home() {
       {/* 3. Featured Events */}
       <section className="featured-events-wrapper">
         <div className="section-header">
-          <h2>Upcoming Summits</h2>
+          <h2>Featured Events</h2>
           <p>Join the community shaping the future of flight.</p>
         </div>
         

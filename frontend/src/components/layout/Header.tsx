@@ -49,11 +49,18 @@ export default function Header() {
           <div className="nav-item-dropdown">
             <Link to="/knowledge-centre" onClick={closeMenu}>Knowledge Centre ▾</Link>
             <div className="dropdown-panel">
-              <Link to="/knowledge-centre" onClick={closeMenu}>All Knowledge</Link>
-              <Link to="/knowledge-centre?type=Research Paper" onClick={closeMenu}>Research Paper</Link>
-              <Link to="/knowledge-centre?type=Invention History" onClick={closeMenu}>Invention History</Link>
-              <Link to="/knowledge-centre?type=Technical Handbook" onClick={closeMenu}>Technical Handbook</Link>
-              <Link to="/knowledge-centre?type=Case Study" onClick={closeMenu}>Case Study</Link>
+              <Link to="/knowledge-centre?type=Mentor" onClick={closeMenu}>Mentor</Link>
+              <Link to="/knowledge-centre?type=Case Study" onClick={closeMenu}>Case study</Link>
+              
+              {/* Coming Soon Items - Styled to look inactive */}
+              <span style={{ padding: '0.6rem 1rem', color: '#555', fontSize: '0.9rem', cursor: 'not-allowed' }}>
+                Technical Papers (Coming Soon)
+              </span>
+              <span style={{ padding: '0.6rem 1rem', color: '#555', fontSize: '0.9rem', cursor: 'not-allowed' }}>
+                Research Papers (Coming Soon)
+              </span>
+              
+              <Link to="/knowledge-centre?type=Gallery" onClick={closeMenu}>Gallery photos</Link>
             </div>
           </div>
 

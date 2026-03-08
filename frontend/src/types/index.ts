@@ -38,3 +38,12 @@ export interface SuccessStory {
   content: string;
   image: string;
 }
+
+export interface GalleryItem {
+  id: string;
+  collectionId: string;
+  title: string;
+  media_type: 'Photo' | 'Video';
+  image: string; 
+  youtube_url: string;
+}

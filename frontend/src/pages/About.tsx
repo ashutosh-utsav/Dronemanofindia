@@ -118,7 +118,7 @@ export default function About() {
                   key={story.id}
                   id={story.id}
                   title={story.title}
-                  subtitle={`Featuring: ${story.name}`}
+                  subtitle={story.name}
                   imageUrl={imageUrl}
                   linkPrefix="impact" 
                 />
