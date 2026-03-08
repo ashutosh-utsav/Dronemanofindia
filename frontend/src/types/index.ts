@@ -1,9 +1,10 @@
 export interface DroneEvent {
   id: string; 
-  collectionId: string; // <-- Add this line
+  collectionId: string; 
   title: string;
   type: string;
   date: string;
+  time?: string;
   location: string;
   description: string;
   image: string; 
@@ -11,7 +12,7 @@ export interface DroneEvent {
 
 export interface KnowledgeResource {
   id: string;
-  collectionId: string; // <-- Add this line
+  collectionId: string; 
   title: string;
   category: string;
   summary: string;

@@ -34,11 +34,38 @@ export default function About() {
       {/* 1. MISSION */}
       <section id="mission" className="page-wrapper" style={{ textAlign: 'center' }}>
         <div className="section-header">
-          <h1 className="gradient-text">Our Mission</h1>
-          <p className="centered-subtitle">Pioneering the future of drone technology through research and indigenous innovation.</p>
+          <h1 className="gradient-text">Our Mission – Viksit Bharat AI & Drone Innovation</h1>
         </div>
-        <div className="mission-description">
-          <p>We are dedicated to building a self-reliant drone ecosystem in India, focusing on high-performance hardware and intelligent flight systems.</p>
+        
+        {/* Mission Image */}
+        <div style={{ marginBottom: '3rem' }}>
+          <img 
+            src="/Our Mission theme photo.jpeg" 
+            alt="Our Mission Team" 
+            style={{ 
+              width: '100%', 
+              maxWidth: '900px', 
+              borderRadius: '24px', 
+              border: '1px solid var(--border-subtle)',
+              objectFit: 'cover'
+            }} 
+          />
+        </div>
+
+        {/* Mission Text */}
+        <div className="mission-description" style={{ textAlign: 'left', maxWidth: '900px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem', color: 'var(--text-muted)' }}>
+          <p>
+            Our mission at Viksit Bharat AI & Drone Innovation is to empower the next generation of innovators by promoting knowledge and practical skills in Artificial Intelligence, Drone Technology, and emerging technologies. We believe that technology-driven education can play a crucial role in building a self-reliant and technologically advanced India.
+          </p>
+          <p>
+            Through our initiatives, we aim to educate, inspire, and guide students toward understanding modern technologies that are shaping the future. By introducing students to real-world applications of AI, automation, drones, smart agriculture, and innovative engineering solutions, we help them develop problem-solving skills and creative thinking.
+          </p>
+          <p>
+            Our platform focuses on providing awareness, learning resources, and project-based innovation opportunities so that students can transform their ideas into practical solutions. We encourage young minds to explore technology not only as a career path but also as a tool to solve real-world challenges in fields such as agriculture, healthcare, energy, and smart infrastructure.
+          </p>
+          <p>
+            Aligned with the vision of Viksit Bharat, our goal is to nurture a community of skilled students and innovators who will contribute to building a future-ready India powered by technology, innovation, and knowledge.
+          </p>
         </div>
       </section>
 

@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import pb from '../api/pocketbase';
 import type { DroneEvent } from '../types';
-import Card from '../components/ui/Card';
+import EventCard from '../components/ui/EventCard';
 import './Events.css'; 
 import './KnowledgeCentre.css'; 
 
-const EVENT_CATEGORIES = ['All', 'Conference', 'Workshop', 'Meetup', 'Competition'];
+// Updated Categories to match your request exactly
+const EVENT_CATEGORIES = ['All', 'Events', 'Conferences', 'Meetups', 'Workshop', 'Competition'];
 
 export default function Events() {
   const [events, setEvents] = useState<DroneEvent[]>([]);
@@ -15,7 +16,6 @@ export default function Events() {
   
   const activeFilter = searchParams.get('type') || 'All';
 
-  // 1. Fetch the data
   useEffect(() => {
     async function fetchEvents() {
       try {
@@ -32,14 +32,12 @@ export default function Events() {
     fetchEvents();
   }, []);
 
-  // 2. The Framing Scroll Logic
   useEffect(() => {
     if (searchParams.has('type')) {
-      // If a specific filter is clicked from the menu, scroll to frame it
       setTimeout(() => {
         const element = document.getElementById('filter-target');
         if (element) {
-          const headerOffset = 120; // Accounts for your sticky header
+          const headerOffset = 120; 
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
           
@@ -48,12 +46,11 @@ export default function Events() {
             behavior: "smooth"
           });
         }
-      }, 100); // 100ms delay ensures the DOM is painted before scrolling
+      }, 100); 
     } else {
-      // If they just clicked "All Events", ensure they start at the top
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  }, [searchParams]); // Re-runs whenever the URL changes
+  }, [searchParams]);
 
   const handleFilterChange = (category: string) => {
     if (category === 'All') {
@@ -69,9 +66,12 @@ export default function Events() {
 
   return (
     <div className="page-container">
+      {/* Updated Heading & Subtitle */}
       <h1 className="page-title">Events & Programs</h1>
+      <p style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto 3rem auto' }}>
+        Workshops, training sessions, and innovation programs that empower students to learn AI and drone technologies
+      </p>
       
-      {/* We add an ID here so the Javascript knows exactly where to scroll */}
       <div id="filter-target" className="filter-container">
         {EVENT_CATEGORIES.map(category => (
           <button 
@@ -93,14 +93,16 @@ export default function Events() {
               ? `https://cms.dronemanofindia.com/api/files/${event.collectionId}/${event.id}/${event.image}`
               : '';
             return (
-              <Card 
+              <EventCard 
                 key={event.id}
                 id={event.id}
                 title={event.title}
-                subtitle={event.location}
+                type={event.type}
+                description={event.description}
                 date={event.date}
+                time={event.time} /* Requires adding 'time' to your CMS */
+                location={event.location}
                 imageUrl={imageUrl}
-                linkPrefix="events"
               />
             );
           })}

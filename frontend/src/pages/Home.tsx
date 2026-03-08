@@ -69,6 +69,19 @@ export default function Home() {
             <h3>Policy & Community</h3>
             <p>Bridging the gap between hardware manufacturers and regulatory bodies to establish progressive aviation frameworks.</p>
           </div>
+
+          <div className="focus-card">
+            <div className="focus-icon">🔬</div>
+            <h3>Applied Research & Prototyping</h3>
+            <p>Transforming innovative concepts into real-world drone solutions through rapid prototyping, testing, and iterative engineering.</p>
+          </div>
+
+          <div className="focus-card">
+            <div className="focus-icon">🛰️</div>
+            <h3>Autonomous Systems & AI</h3>
+            <p>Integrating artificial intelligence, computer vision, and autonomous navigation to build smarter and more efficient aerial platforms.</p>
+          </div>
+
         </div>
       </section>
 
