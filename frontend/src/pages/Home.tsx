@@ -4,7 +4,9 @@ import pb from '../api/pocketbase';
 import type { DroneEvent } from '../types';
 import Card from '../components/ui/Card';
 import './Home.css';
-import './Events.css'; // Keeps the card grid uniform
+import './Events.css'; 
+
+import JourneyTimeline from '../components/ui/JourneyTimeline';
 
 export default function Home() {
   const [featuredEvents, setFeaturedEvents] = useState<DroneEvent[]>([]);
@@ -84,6 +86,8 @@ export default function Home() {
 
         </div>
       </section>
+
+      <JourneyTimeline />
 
       {/* 3. Featured Events */}
       <section className="featured-events-wrapper">

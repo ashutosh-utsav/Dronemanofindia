@@ -1,0 +1,132 @@
+/* frontend/src/components/ui/JourneyTimeline.css */
+
+.timeline-wrapper {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.timeline-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* The actual vertical line */
+.timeline-container::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: var(--border-subtle);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+  border-radius: 4px;
+}
+
+/* The invisible box holding each milestone */
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+/* Positioning the left and right items */
+.timeline-item.left {
+  left: 0;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
+
+/* The glowing dots on the line */
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -12px;
+  background-color: var(--bg-main);
+  border: 4px solid var(--brand-accent);
+  top: 32px;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0 15px var(--brand-glow);
+}
+
+.timeline-item.right::after {
+  left: -12px;
+}
+
+/* The visible card */
+.timeline-card {
+  padding: 1.5rem;
+  background-color: var(--bg-surface);
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.timeline-year {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--brand-accent);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.timeline-title {
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.timeline-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.timeline-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .timeline-container::after {
+    left: 20px; /* Move line to the left edge */
+  }
+  
+  .timeline-item {
+    width: 100%;
+    padding-left: 60px;
+    padding-right: 0;
+  }
+  
+  .timeline-item.left, 
+  .timeline-item.right {
+    left: 0;
+  }
+  
+  .timeline-item.left::after, 
+  .timeline-item.right::after {
+    left: 10px; /* Move dots to align with the left line */
+  }
+}
