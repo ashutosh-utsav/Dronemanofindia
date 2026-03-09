@@ -31,7 +31,6 @@ export default function Home() {
   return (
     <div>
       {/* 1. Cinematic Hero Banner */}
-      {/* 1. Cinematic Hero Banner */}
       <section className="hero-section">
         {/* NEW: The Background Video */}
         {/* Replace "hero-bg.mp4" with the exact name of your video file */}
@@ -140,6 +139,83 @@ export default function Home() {
           <Link to="/events" className="btn-secondary" style={{ padding: '0.8rem 3rem' }}>View Full Calendar</Link>
         </div>
       </section>
+
+      {/* 4. Prominent Areas of Focus (Heavy & Bold) */}
+      <section className="focus-section" style={{ borderTop: '1px solid var(--border-subtle)' }}>
+        <div className="section-header">
+          <h2 className="gradient-text" style={{ fontSize: '2.8rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-0.02em' }}>
+            Prominent Areas of Focus
+          </h2>
+        </div>
+        
+        <div className="focus-grid">
+          <div className="focus-card" style={{ padding: '3rem 2.5rem' }}>
+            <div className="focus-icon">🛡️</div>
+            <h3 style={{ fontSize: '1.6rem', fontWeight: 900, textTransform: 'uppercase', color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+              Sovereign Innovation
+            </h3>
+            <h4 style={{ fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--brand-accent)', marginBottom: '1.5rem' }}>
+              Strategic Indigenization & Make in India
+            </h4>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.7 }}>
+              Breaking global dependencies by engineering world-class UAV (Unmanned Aerial Vehicle) systems designed, developed, and manufactured on Indian soil.
+            </p>
+          </div>
+
+          <div className="focus-card" style={{ padding: '3rem 2.5rem' }}>
+            <div className="focus-icon">🌾</div>
+            <h3 style={{ fontSize: '1.6rem', fontWeight: 900, textTransform: 'uppercase', color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+              Precision Agriculture
+            </h3>
+            <h4 style={{ fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--brand-accent)', marginBottom: '1.5rem' }}>
+              Revolutionizing the Agrarian Economy
+            </h4>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.7 }}>
+              Empowering the Indian farmer with data-driven drone technology to enhance crop yields, optimize resource management, and ensure national food security.
+            </p>
+          </div>
+
+          <div className="focus-card" style={{ padding: '3rem 2.5rem' }}>
+            <div className="focus-icon">🚁</div>
+            <h3 style={{ fontSize: '1.6rem', fontWeight: 900, textTransform: 'uppercase', color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+              Tactical Disaster Response
+            </h3>
+            <h4 style={{ fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--brand-accent)', marginBottom: '1.5rem' }}>
+              Autonomous Search, Rescue & Relief
+            </h4>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.7 }}>
+              Deploying cutting-edge aerial intelligence to navigate the unreachable, saving lives during natural calamities through rapid-response drone deployment.
+            </p>
+          </div>
+
+          <div className="focus-card" style={{ padding: '3rem 2.5rem' }}>
+            <div className="focus-icon">⚙️</div>
+            <h3 style={{ fontSize: '1.6rem', fontWeight: 900, textTransform: 'uppercase', color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+              National Semiconductor <br/>& Tech Advancement
+            </h3>
+            <h4 style={{ fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--brand-accent)', marginBottom: '1.5rem' }}>
+              Building the Future Tech-Ecosystem
+            </h4>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.7 }}>
+              Driving the evolution of drone hardware and software to position India as the global "Drone Hub" by 2030.
+            </p>
+          </div>
+
+          <div className="focus-card" style={{ padding: '3rem 2.5rem' }}>
+            <div className="focus-icon">🎓</div>
+            <h3 style={{ fontSize: '1.6rem', fontWeight: 900, textTransform: 'uppercase', color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+              Human Capital Empowerment
+            </h3>
+            <h4 style={{ fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--brand-accent)', marginBottom: '1.5rem' }}>
+              Scaling Skill Bharat Missions
+            </h4>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.7 }}>
+              Architecting specialized training programs to transform the Indian youth into a powerhouse of certified drone pilots and aerospace engineers.
+            </p>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
