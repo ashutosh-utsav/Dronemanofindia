@@ -4,10 +4,25 @@ import './Header.css';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
 
-  const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-  const closeMenu = () => setIsMobileMenuOpen(false);
+  const toggleMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    if (isMobileMenuOpen) setOpenDropdown(null);
+  };
+  
+  const closeMenu = () => {
+    setIsMobileMenuOpen(false);
+    setOpenDropdown(null);
+  };
+
+  const toggleDropdown = (e: React.MouseEvent, menu: string) => {
+    if (window.innerWidth <= 900) {
+      e.preventDefault();
+      setOpenDropdown(openDropdown === menu ? null : menu);
+    }
+  };
 
   return (
     <header className="site-header">
@@ -26,17 +41,18 @@ export default function Header() {
             Home
           </Link>
           
-          <div className="nav-item-dropdown">
-            <Link to="/about" onClick={closeMenu}>About Us ▾</Link>
+          <div className={`nav-item-dropdown ${openDropdown === 'about' ? 'open' : ''}`}>
+            <Link to="/about" onClick={(e) => toggleDropdown(e, 'about')}>About Us ▾</Link>
             <div className="dropdown-panel">
+              <Link to="/about" onClick={closeMenu}>Overview</Link>
               <a href="/about#mission" onClick={closeMenu}>Our Mission</a>
               <a href="/about#team" onClick={closeMenu}>The Team</a>
               <a href="/about#impact" onClick={closeMenu}>Our Impact</a>
             </div>
           </div>
 
-          <div className="nav-item-dropdown">
-            <Link to="/events" onClick={closeMenu}>Events & Programs ▾</Link>
+          <div className={`nav-item-dropdown ${openDropdown === 'events' ? 'open' : ''}`}>
+            <Link to="/events" onClick={(e) => toggleDropdown(e, 'events')}>Events & Programs ▾</Link>
             <div className="dropdown-panel">
               <Link to="/events" onClick={closeMenu}>All Events</Link>
               <Link to="/events?type=Conference" onClick={closeMenu}>Conference</Link>
@@ -46,9 +62,10 @@ export default function Header() {
             </div>
           </div>
 
-          <div className="nav-item-dropdown">
-            <Link to="/knowledge-centre" onClick={closeMenu}>Knowledge Centre ▾</Link>
+          <div className={`nav-item-dropdown ${openDropdown === 'knowledge' ? 'open' : ''}`}>
+            <Link to="/knowledge-centre" onClick={(e) => toggleDropdown(e, 'knowledge')}>Knowledge Centre ▾</Link>
             <div className="dropdown-panel">
+              <Link to="/knowledge-centre" onClick={closeMenu}>All Knowledge</Link>
               <Link to="/knowledge-centre?type=Mentor" onClick={closeMenu}>Mentor</Link>
               <Link to="/knowledge-centre?type=Case Study" onClick={closeMenu}>Case study</Link>
               <Link to="/knowledge-centre?type=Project" onClick={closeMenu}>Project</Link>
