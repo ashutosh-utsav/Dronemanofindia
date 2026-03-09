@@ -58,3 +58,18 @@ a {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding: 3rem 1rem;
+  }
+  
+  h1 {
+    font-size: 2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+}
