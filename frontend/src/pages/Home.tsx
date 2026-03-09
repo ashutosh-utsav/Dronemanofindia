@@ -31,7 +31,23 @@ export default function Home() {
   return (
     <div>
       {/* 1. Cinematic Hero Banner */}
+      {/* 1. Cinematic Hero Banner */}
       <section className="hero-section">
+        {/* NEW: The Background Video */}
+        {/* Replace "hero-bg.mp4" with the exact name of your video file */}
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="hero-video-bg"
+        >
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
+
+        {/* NEW: A dark overlay to ensure text is always readable */}
+        <div className="hero-overlay"></div>
+
         <div className="hero-content">
           <h1 className="gradient-text">India's Aerial Future.</h1>
           <p className="hero-subtitle">
