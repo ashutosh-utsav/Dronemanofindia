@@ -2,12 +2,30 @@ import { Link } from 'react-router-dom';
 import './Footer.css';
 
 export default function Footer() {
+  
+  // THE FIX: This forces a scroll up even if React Router ignores the link click
+  const handleFooterClick = () => {
+    // Check if the current page has the filter tabs (Events or Knowledge Centre)
+    const filterTarget = document.getElementById('filter-target');
+    
+    if (filterTarget) {
+      // If the tabs exist, scroll smoothly to them, accounting for the sticky header
+      const headerOffset = 120;
+      const elementPosition = filterTarget.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    } else {
+      // If it's a normal page like About or Home, scroll smoothly to the very top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="site-footer">
       <div className="footer-grid">
         {/* Brand Column */}
         <div className="footer-brand">
-          <Link to="/" className="footer-logo">Drone Man of India</Link>
+          <Link to="/" className="footer-logo" onClick={handleFooterClick}>Drone Man of India</Link>
           <p className="footer-description">
             Pioneering the future of aerial robotics, indigenous manufacturing, and forward-looking aviation policy in India.
           </p>
@@ -43,20 +61,20 @@ export default function Footer() {
         <div className="footer-nav">
           <h4>Ecosystem</h4>
           <ul>
-            <li><Link to="/about">About Us</Link></li>
-            <li><Link to="/events">Events & Summits</Link></li>
-            <li><Link to="/knowledge-centre">Knowledge Centre</Link></li>
-            <li><Link to="/contact">Contact & Membership</Link></li>
+            <li><Link to="/about" onClick={handleFooterClick}>About Us</Link></li>
+            <li><Link to="/events" onClick={handleFooterClick}>Events & Summits</Link></li>
+            <li><Link to="/knowledge-centre" onClick={handleFooterClick}>Knowledge Centre</Link></li>
+            <li><Link to="/contact" onClick={handleFooterClick}>Contact & Membership</Link></li>
           </ul>
         </div>
 
-        {/* Resources Column (Updated to match new Knowledge Centre) */}
+        {/* Resources Column */}
         <div className="footer-nav">
           <h4>Resources</h4>
           <ul>
-            <li><Link to="/knowledge-centre?type=Mentor">Mentor</Link></li>
-            <li><Link to="/knowledge-centre?type=Case Study">Case Studies</Link></li>
-            <li><Link to="/knowledge-centre?type=Gallery">Gallery Photos</Link></li>
+            <li><Link to="/knowledge-centre?type=Mentor" onClick={handleFooterClick}>Mentor</Link></li>
+            <li><Link to="/knowledge-centre?type=Case Study" onClick={handleFooterClick}>Case Studies</Link></li>
+            <li><Link to="/knowledge-centre?type=Gallery" onClick={handleFooterClick}>Gallery Photos</Link></li>
             <li>
               <span style={{ color: 'var(--text-muted)', fontSize: '0.95rem', cursor: 'not-allowed' }}>
                 Technical Papers (Soon)
@@ -82,8 +100,8 @@ export default function Footer() {
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} Drone Man of India. All Rights Reserved.</p>
         <div className="footer-legal">
-          <Link to="#">Privacy Policy</Link>
-          <Link to="#">Terms of Service</Link>
+          <Link to="#" onClick={handleFooterClick}>Privacy Policy</Link>
+          <Link to="#" onClick={handleFooterClick}>Terms of Service</Link>
         </div>
       </div>
     </footer>
