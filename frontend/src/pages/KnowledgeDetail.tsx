@@ -26,11 +26,11 @@ export default function KnowledgeDetail() {
   if (loading || !resource) return <div className="page-wrapper">Loading...</div>;
 
   const imageUrl = resource.thumbnail 
-    ? `http://127.0.0.1:8090/api/files/${resource.collectionId}/${resource.id}/${resource.thumbnail}`
+    ? `https://cms.dronemanofindia.com/api/files/${resource.collectionId}/${resource.id}/${resource.thumbnail}`
     : '';
   
   const docUrl = resource.document 
-    ? `http://127.0.0.1:8090/api/files/${resource.collectionId}/${resource.id}/${resource.document}`
+    ? `https://cms.dronemanofindia.com/api/files/${resource.collectionId}/${resource.id}/${resource.document}`
     : '';
 
   return (

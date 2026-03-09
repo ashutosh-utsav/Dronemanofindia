@@ -8,7 +8,7 @@ import GalleryGrid from '../components/ui/GalleryGrid'; // <-- Imported our new 
 import './KnowledgeCentre.css';
 import './Events.css';
 
-const CATEGORIES = ['All', 'Mentor', 'Case Study', 'Gallery'];
+const CATEGORIES = ['All', 'Mentor', 'Case Study','Project', 'Gallery'];
 
 export default function KnowledgeCentre() {
   const [resources, setResources] = useState<KnowledgeResource[]>([]);
@@ -68,6 +68,10 @@ export default function KnowledgeCentre() {
   return (
     <div className="page-container">
       <h1 className="page-title">Knowledge Centre</h1>
+
+      <p style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto 3rem auto' }}>
+        Explore mentors, case studies, innovative projects, and technical resources that showcase knowledge and research in advanced technologies.
+      </p>
       
       <div id="filter-target" className="filter-container">
         {CATEGORIES.map(category => (

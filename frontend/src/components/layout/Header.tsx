@@ -51,6 +51,7 @@ export default function Header() {
             <div className="dropdown-panel">
               <Link to="/knowledge-centre?type=Mentor" onClick={closeMenu}>Mentor</Link>
               <Link to="/knowledge-centre?type=Case Study" onClick={closeMenu}>Case study</Link>
+              <Link to="/knowledge-centre?type=Project" onClick={closeMenu}>Project</Link>
               
               {/* Coming Soon Items - Styled to look inactive */}
               <span style={{ padding: '0.6rem 1rem', color: '#555', fontSize: '0.9rem', cursor: 'not-allowed' }}>
