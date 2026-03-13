@@ -1,50 +1,117 @@
 /* frontend/src/components/ui/GalleryGrid.css */
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+.gallery-carousel-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 3rem auto;
+  border-radius: 20px;
+  background-color: var(--bg-surface);
+  /* Sleek borders and glows */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(96, 165, 250, 0.15);
 }
 
-.gallery-card {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 16px;
-  overflow: hidden;
+.gallery-carousel-btn {
+  position: absolute;
+  top: calc(50% - 30px);
+  /* Centers on media container, excluding text info */
+  transform: translateY(-50%);
+  background: rgba(5, 5, 5, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-carousel-btn.prev {
+  left: 1.5rem;
+}
+
+.gallery-carousel-btn.next {
+  right: 1.5rem;
+}
+
+.gallery-carousel-btn:hover {
+  background: var(--brand-accent);
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 20px var(--brand-glow);
+  transform: translateY(-50%) scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .gallery-carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .gallery-carousel-btn.prev {
+    left: 0.5rem;
+  }
+
+  .gallery-carousel-btn.next {
+    right: 0.5rem;
+  }
+}
+
+.gallery-carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.gallery-carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.gallery-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-  border-color: rgba(255, 255, 255, 0.15);
-}
-
-.gallery-media-container {
+.gallery-carousel-media-container {
   width: 100%;
-  /* 16:9 Aspect Ratio trick */
-  padding-top: 56.25%; 
+  height: 450px;
+  /* Fixed height for consistency */
   position: relative;
-  background-color: #111;
+  background-color: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.gallery-media-container img,
-.gallery-media-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.gallery-carousel-media-container img,
+.gallery-carousel-media-container iframe {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  /* Ensures the whole photo is shown, nothing is cut */
   border: none;
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.gallery-carousel-media-container img:hover {
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .gallery-carousel-media-container {
+    height: 300px;
+  }
 }
 
 .gallery-info {
   padding: 1.25rem;
   text-align: center;
+  background-color: var(--bg-surface);
 }
 
 .gallery-title {
@@ -54,16 +121,28 @@
   margin: 0;
 }
 
-/* --- ADD THIS TO THE BOTTOM OF GalleryGrid.css --- */
-
-/* Make grid images look clickable */
-.gallery-media-container img {
-  cursor: zoom-in;
-  transition: transform 0.3s ease;
+/* Dots navigation */
+.gallery-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 1rem;
+  background-color: var(--bg-surface);
 }
 
-.gallery-card:hover .gallery-media-container img {
-  transform: scale(1.05); /* Slight zoom on hover for premium feel */
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--border-subtle);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+  background-color: var(--brand-accent);
+  transform: scale(1.2);
 }
 
 /* Lightbox Popup Styles */
@@ -75,11 +154,13 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.92);
   backdrop-filter: blur(5px);
-  z-index: 100000; /* Must sit above your sticky header */
+  z-index: 100000;
+  /* Must sit above your sticky header */
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: zoom-out; /* Lets user know clicking anywhere closes it */
+  cursor: zoom-out;
+  /* Lets user know clicking anywhere closes it */
 }
 
 .lightbox-image {
@@ -106,6 +187,13 @@
 }
 
 @keyframes zoomIn {
-  from { transform: scale(0.95); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

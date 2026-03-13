@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap');
 
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px; /* Prevents sticky header from covering titles */
+  scroll-padding-top: 100px;
+  /* Prevents sticky header from covering titles */
 }
 
 :root {
@@ -12,7 +19,7 @@ html {
   --border-subtle: rgba(255, 255, 255, 0.08);
   --text-primary: #ffffff;
   --text-muted: #a1a1aa;
-  
+
   /* Brand Accents - Sleek Indigo/Blue instead of harsh neon */
   --brand-accent: #60a5fa;
   --brand-glow: rgba(96, 165, 250, 0.15);
@@ -34,7 +41,9 @@ body {
 }
 
 /* Typography Base */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -64,11 +73,11 @@ a {
   .page-wrapper {
     padding: 3rem 1rem;
   }
-  
+
   h1 {
     font-size: 2rem !important;
   }
-  
+
   h2 {
     font-size: 1.75rem !important;
   }
