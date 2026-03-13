@@ -1,9 +1,24 @@
 .top-bar {
-  background: linear-gradient(90deg, #090e17 0%, #0d1b2a 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  background: linear-gradient(90deg, #05051a 0%, #0a0b28 50%, #05051a 100%);
+  border-bottom: 1px solid rgba(255, 153, 51, 0.15);
   padding: 0.6rem 0;
   color: var(--text-muted);
   font-size: 0.85rem;
+}
+
+/* The 3px Tricolor Stripe — the most iconic element of the Indian flag */
+.top-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg,
+      #FF9933 0%, #FF9933 33.33%,
+      #ffffff 33.33%, #ffffff 66.66%,
+      #138808 66.66%, #138808 100%);
 }
 
 .top-bar-container {
@@ -60,9 +75,9 @@
 .site-header {
   position: sticky;
   top: 0;
-  background: rgba(5, 5, 5, 0.95);
-  backdrop-filter: blur(15px);
-  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(6, 7, 26, 0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 153, 51, 0.12);
   z-index: 9999;
   padding: 1.25rem 0;
 }
@@ -79,8 +94,12 @@
 .brand-logo {
   font-size: 1.4rem;
   font-weight: 800;
-  color: var(--text-primary);
   text-decoration: none;
+  /* Tricolor gradient on the brand name itself */
+  background: linear-gradient(90deg, #FF9933 0%, #ffffff 45%, #138808 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .main-nav {
@@ -98,8 +117,9 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(10px);
-  background: #111;
-  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  border: 1px solid rgba(255, 153, 51, 0.15);
+  border-top: 2px solid var(--saffron);
   border-radius: 12px;
   padding: 0.8rem;
   min-width: 220px;
@@ -109,7 +129,7 @@
   opacity: 0;
   visibility: hidden;
   transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 153, 51, 0.05);
 }
 
 @media (min-width: 901px) {
@@ -129,7 +149,7 @@
 }
 
 .dropdown-panel a:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 153, 51, 0.08);
   color: var(--brand-accent);
 }
 
@@ -156,7 +176,7 @@
     transform: translateX(100%);
     width: 100%;
     height: 100vh;
-    background: #050505;
+    background: var(--bg-main);
     flex-direction: column;
     justify-content: center;
     align-items: center;

@@ -9,20 +9,41 @@ body {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
-  /* Prevents sticky header from covering titles */
 }
 
 :root {
-  /* Premium Dark Theme Palette */
-  --bg-main: #050505;
-  --bg-surface: #111111;
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --text-primary: #ffffff;
-  --text-muted: #a1a1aa;
+  /* Indian Flag — Official Colors */
+  --saffron: #FF9933;
+  --saffron-dark: #e07a10;
+  --saffron-light: #ffb366;
+  --india-green: #138808;
+  --india-green-light: #1db30c;
+  --chakra-navy: #000080;
 
-  /* Brand Accents - Sleek Indigo/Blue instead of harsh neon */
-  --brand-accent: #60a5fa;
-  --brand-glow: rgba(96, 165, 250, 0.15);
+  /* Deep navy background — inspired by the Ashoka Chakra depth */
+  --bg-main: #06071a;
+  --bg-surface: #0c0e26;
+  --bg-surface-2: #10122e;
+
+  /* Section washes */
+  --saffron-wash: rgba(255, 153, 51, 0.055);
+  --green-wash: rgba(19, 136, 8, 0.05);
+
+  /* Borders and text */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-saffron: rgba(255, 153, 51, 0.2);
+  --border-green: rgba(19, 136, 8, 0.2);
+  --text-primary: #f0f0ee;
+  --text-muted: #9a9ab8;
+
+  /* Aliases used throughout component CSS */
+  --brand-accent: #FF9933;
+  --brand-accent-light: #ffb366;
+  --brand-green: #138808;
+  --brand-green-light: #1db30c;
+  --brand-navy: #000080;
+  --brand-glow: rgba(255, 153, 51, 0.18);
+  --brand-green-glow: rgba(19, 136, 8, 0.15);
 }
 
 * {
@@ -34,6 +55,11 @@ html {
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background-color: var(--bg-main);
+  /* Ambient glow: saffron radiates from the top, green from the bottom — like the flag */
+  background-image:
+    radial-gradient(ellipse 90% 45% at 50% -5%, rgba(255, 153, 51, 0.1) 0%, transparent 65%),
+    radial-gradient(ellipse 90% 45% at 50% 105%, rgba(19, 136, 8, 0.09) 0%, transparent 65%);
+  background-attachment: fixed;
   color: var(--text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -61,8 +87,9 @@ a {
   padding: 6rem 2rem;
 }
 
+/* Tricolor gradient: Saffron → White → India Green */
 .gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+  background: linear-gradient(135deg, var(--saffron-light) 0%, #ffffff 45%, var(--india-green-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
