@@ -48,9 +48,9 @@ export default function Home() {
         <div className="hero-overlay"></div>
 
         <div className="hero-content">
-          <h1 className="gradient-text">India's Aerial Future.</h1>
+          <h1 className="gradient-text"></h1>
           <p className="hero-subtitle">
-            Uniting innovators, policymakers, and engineers to accelerate the nation's drone ecosystem through research, policy, and indigenous manufacturing.
+            
           </p>
           <div className="hero-buttons">
             <Link to="/about" className="btn-primary">Explore Our Mission</Link>

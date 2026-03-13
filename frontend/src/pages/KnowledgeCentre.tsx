@@ -4,11 +4,11 @@ import { useSearchParams } from 'react-router-dom';
 import pb from '../api/pocketbase';
 import type { KnowledgeResource } from '../types';
 import Card from '../components/ui/Card';
-import GalleryGrid from '../components/ui/GalleryGrid'; // <-- Imported our new component
+import GalleryGrid from '../components/ui/GalleryGrid'; 
 import './KnowledgeCentre.css';
 import './Events.css';
 
-const CATEGORIES = ['All', 'Mentor', 'Case Study','Project', 'Gallery'];
+const CATEGORIES = ['All', 'Mentor', 'Guidance','Project', 'Gallery'];
 
 export default function KnowledgeCentre() {
   const [resources, setResources] = useState<KnowledgeResource[]>([]);

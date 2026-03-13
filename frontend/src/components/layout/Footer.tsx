@@ -73,7 +73,7 @@ export default function Footer() {
           <h4>Resources</h4>
           <ul>
             <li><Link to="/knowledge-centre?type=Mentor" onClick={handleFooterClick}>Mentor</Link></li>
-            <li><Link to="/knowledge-centre?type=Case Study" onClick={handleFooterClick}>Case Studies</Link></li>
+            <li><Link to="/knowledge-centre?type=Guidance" onClick={handleFooterClick}>Guidance</Link></li>
             <li><Link to="/knowledge-centre?type=Gallery" onClick={handleFooterClick}>Gallery Photos</Link></li>
             <li>
               <span style={{ color: 'var(--text-muted)', fontSize: '0.95rem', cursor: 'not-allowed' }}>
@@ -93,7 +93,7 @@ export default function Footer() {
           <h4>Headquarters</h4>
           <p>T-Hub, Knowledge City Rd,</p>
           <p>Hyderabad, Telangana</p>
-          <p className="contact-email">hello@dronemanofindia.com</p>
+          <p className="contact-email">rahulsingh120704@gmail.com</p>
         </div>
       </div>
 

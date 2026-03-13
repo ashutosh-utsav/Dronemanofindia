@@ -67,7 +67,7 @@ export default function Header() {
             <div className="dropdown-panel">
               <Link to="/knowledge-centre" onClick={closeMenu}>All Knowledge</Link>
               <Link to="/knowledge-centre?type=Mentor" onClick={closeMenu}>Mentor</Link>
-              <Link to="/knowledge-centre?type=Case Study" onClick={closeMenu}>Case study</Link>
+              <Link to="/knowledge-centre?type=Guidance" onClick={closeMenu}>Guidance</Link>
               <Link to="/knowledge-centre?type=Project" onClick={closeMenu}>Project</Link>
               
               {/* Coming Soon Items - Styled to look inactive */}
