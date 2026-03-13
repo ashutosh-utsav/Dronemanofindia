@@ -1,26 +1,27 @@
-/* src/components/ui/Card.css */
+/* src/components/ui/Card.css — Unified Indian Flag Theme */
 
 .custom-card {
-  background-color: var(--bg-surface);
-  border-radius: 16px;
+  background: var(--bg-card);
+  border-radius: 14px;
   overflow: hidden;
   border: 1px solid var(--border-subtle);
+  border-top: 2px solid var(--saffron);
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-/* Stable, premium highlight-on-hover effect */
 .custom-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
+  border-color: rgba(255, 153, 51, 0.35);
+  border-top-color: var(--saffron);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 153, 51, 0.1);
 }
 
 .card-image-container {
   height: 220px;
-  background-color: #1a1a1a;
+  background: var(--bg-elevated);
   width: 100%;
   border-bottom: 1px solid var(--border-subtle);
 }
@@ -51,45 +52,47 @@
 }
 
 .card-date {
-  font-size: 0.8rem;
-  color: var(--brand-accent);
+  font-size: 0.78rem;
+  color: var(--saffron);
   margin-bottom: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .card-title {
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   font-weight: 700;
   margin: 0 0 0.75rem 0;
   color: var(--text-primary);
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 .card-subtitle {
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   color: var(--text-muted);
   margin-bottom: 2rem;
-  line-height: 1.6;
+  line-height: 1.65;
   flex-grow: 1;
 }
 
 .card-button {
   display: inline-block;
   text-align: center;
-  padding: 0.75rem 1.5rem;
-  background-color: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
+  padding: 0.7rem 1.5rem;
+  background: transparent;
+  color: rgba(238, 234, 228, 0.65);
+  border: 1px solid rgba(255, 153, 51, 0.2);
+  border-radius: 6px;
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
 }
 
 .card-button:hover {
-  background-color: var(--text-primary);
-  color: var(--bg-main);
+  background: var(--saffron);
+  color: #160800;
+  border-color: var(--saffron);
+  box-shadow: 0 6px 20px rgba(255, 153, 51, 0.3);
 }

@@ -1,25 +1,27 @@
 .event-card {
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-surface);
+  background: var(--bg-card);
   border: 1px solid var(--border-subtle);
+  border-top: 2px solid var(--saffron);
   border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   height: 100%;
 }
 
 .event-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 153, 51, 0.1);
+  border-color: rgba(255, 153, 51, 0.3);
+  border-top-color: var(--saffron);
 }
 
 .ec-image-container {
   position: relative;
   height: 200px;
   width: 100%;
-  background-color: #1a1a1a;
+  background: var(--bg-elevated);
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -68,6 +70,7 @@
   /* Truncates text after 3 lines */
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -77,7 +80,8 @@
   flex-direction: column;
   gap: 0.6rem;
   margin-bottom: 1.5rem;
-  margin-top: auto; /* Pushes it to the bottom if description is short */
+  margin-top: auto;
+  /* Pushes it to the bottom if description is short */
 }
 
 .ec-meta-item {
@@ -89,7 +93,7 @@
 }
 
 .ec-meta-icon {
-  color: var(--brand-accent);
+  color: var(--saffron);
   font-size: 1rem;
   line-height: 1.2;
 }
@@ -102,15 +106,16 @@
 }
 
 .ec-link {
-  color: var(--brand-accent);
-  font-weight: 500;
-  font-size: 0.9rem;
+  color: var(--saffron);
+  font-weight: 600;
+  font-size: 0.88rem;
   display: flex;
   align-items: center;
   gap: 0.4rem;
   transition: color 0.2s ease;
+  letter-spacing: 0.02em;
 }
 
 .ec-link:hover {
-  color: white;
+  color: var(--brand-accent-light);
 }
