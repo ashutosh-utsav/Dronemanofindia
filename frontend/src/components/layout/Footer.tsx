@@ -102,8 +102,8 @@ export default function Footer() {
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} Drone Man of India. All Rights Reserved.</p>
           <div className="footer-legal">
-            <Link to="#" onClick={handleFooterClick}>Privacy Policy</Link>
-            <Link to="#" onClick={handleFooterClick}>Terms of Service</Link>
+            <Link to="/privacy-policy" onClick={handleFooterClick}>Privacy Policy</Link>
+            <Link to="/terms-of-service" onClick={handleFooterClick}>Terms of Service</Link>
           </div>
         </div>
       </div>

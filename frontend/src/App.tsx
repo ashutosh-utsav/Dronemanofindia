@@ -9,6 +9,8 @@ import Contact from './pages/Contact';
 import EventDetail from './pages/EventDetail';
 import KnowledgeDetail from './pages/KnowledgeDetail';
 import ImpactDetail from './pages/ImpactDetail';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 
 export default function App() {
   return (
@@ -26,6 +28,9 @@ export default function App() {
           <Route path="/knowledge-centre/:id" element={<KnowledgeDetail />} />
 
           <Route path="/impact/:id" element={<ImpactDetail />} />
+          
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
         </Route>
       </Routes>
     </BrowserRouter>
