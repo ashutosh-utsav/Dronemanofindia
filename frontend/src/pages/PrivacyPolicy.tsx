@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
       <p className="last-updated">Last Updated: March 2026</p>
 
       <p>
-        Welcome to Drone Man of India (“we,” “our,” or “us”). Your privacy is important to us, and this Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
+        Welcome to Drone Man of India. Your privacy is important to us, and this Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
       </p>
 
       <h2>1. Information We Collect</h2>
