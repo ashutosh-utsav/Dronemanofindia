@@ -1,4 +1,4 @@
-/* src/components/ui/Card.css — Unified Indian Flag Theme */
+/* src/components/ui/Card.css — Light Indian Flag Theme */
 
 .custom-card {
   background: var(--bg-card);
@@ -14,9 +14,9 @@
 
 .custom-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(255, 153, 51, 0.35);
+  border-color: rgba(255, 153, 51, 0.25);
   border-top-color: var(--saffron);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 153, 51, 0.1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 153, 51, 0.1);
 }
 
 .card-image-container {
@@ -53,7 +53,7 @@
 
 .card-date {
   font-size: 0.78rem;
-  color: var(--saffron);
+  color: var(--saffron-dim);
   margin-bottom: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -81,8 +81,8 @@
   text-align: center;
   padding: 0.7rem 1.5rem;
   background: transparent;
-  color: rgba(238, 234, 228, 0.65);
-  border: 1px solid rgba(255, 153, 51, 0.2);
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 153, 51, 0.25);
   border-radius: 6px;
   text-decoration: none;
   font-weight: 500;
@@ -94,5 +94,5 @@
   background: var(--saffron);
   color: #160800;
   border-color: var(--saffron);
-  box-shadow: 0 6px 20px rgba(255, 153, 51, 0.3);
+  box-shadow: 0 6px 20px rgba(255, 153, 51, 0.25);
 }

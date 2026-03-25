@@ -95,7 +95,7 @@ export default function Footer() {
             <h4>Headquarters</h4>
             <p>T-Hub, Knowledge City Rd,</p>
             <p>Hyderabad, Telangana</p>
-            <p className="contact-email">rahulsingh120704@gmail.com</p>
+            <p className="contact-email">thedronemanofindia@gmail.com</p>
           </div>
         </div>
 

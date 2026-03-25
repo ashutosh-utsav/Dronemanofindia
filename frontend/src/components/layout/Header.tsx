@@ -77,10 +77,9 @@ export default function Header() {
             <div className={`nav-item-dropdown ${openDropdown === 'about' ? 'open' : ''}`}>
               <Link to="/about" onClick={(e) => toggleDropdown(e, 'about')}>About Us ▾</Link>
               <div className="dropdown-panel">
-                <Link to="/about" onClick={closeMenu}>Overview</Link>
-                <a href="/about#mission" onClick={closeMenu}>Our Mission</a>
-                <a href="/about#team" onClick={closeMenu}>The Team</a>
-                <a href="/about#impact" onClick={closeMenu}>Our Impact</a>
+                <Link to="/about#mission" onClick={closeMenu}>Our Mission</Link>
+                <Link to="/about#team" onClick={closeMenu}>The Team</Link>
+                <Link to="/about#impact" onClick={closeMenu}>Our Impact</Link>
               </div>
             </div>
 

@@ -7,7 +7,7 @@
   background-color: var(--bg-surface);
   border-radius: 16px;
   border: 1px solid var(--border-subtle);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
 }
 
 .form-group {
@@ -25,7 +25,7 @@
 
 .form-input {
   padding: 0.9rem 1.2rem;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: var(--bg-elevated);
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
   color: var(--text-primary);
@@ -38,14 +38,14 @@
   outline: none;
   border-color: var(--brand-accent);
   box-shadow: 0 0 0 1px var(--brand-accent);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #ffffff;
 }
 
 .submit-btn {
   width: 100%;
   padding: 1rem;
-  background-color: var(--text-primary);
-  color: var(--bg-main);
+  background-color: var(--saffron);
+  color: #160800;
   font-weight: 600;
   font-size: 1.05rem;
   border: none;
@@ -56,20 +56,20 @@
 }
 
 .submit-btn:hover {
-  background-color: #e5e5e5;
+  background-color: #e88520;
   transform: translateY(-2px);
 }
 
 .submit-btn:disabled {
-  background-color: #333;
-  color: #888;
+  background-color: #e0ddd8;
+  color: #999;
   cursor: not-allowed;
   transform: none;
 }
 
 .success-message {
   background-color: var(--brand-glow);
-  color: var(--brand-accent);
+  color: var(--saffron-dim);
   padding: 1.2rem;
   border-radius: 8px;
   border: 1px solid var(--brand-accent);

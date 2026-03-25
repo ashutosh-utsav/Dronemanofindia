@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import pb from '../api/pocketbase';
 import type { TeamMember, SuccessStory } from '../types'; 
 import Card from '../components/ui/Card'; 
@@ -9,6 +10,24 @@ export default function About() {
   const [team, setTeam] = useState<TeamMember[]>([]);
   const [stories, setStories] = useState<SuccessStory[]>([]);
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
+
+  // Scroll to hash section (e.g. #mission, #team, #impact) when navigating from another page
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const el = document.getElementById(location.hash.replace('#', ''));
+        if (el) {
+          const headerOffset = 120;
+          const elementPosition = el.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        }
+      }, 200);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location]);
 
   useEffect(() => {
     async function fetchData() {
