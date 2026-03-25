@@ -61,12 +61,12 @@
 }
 
 /* ═══════════════════════════════════════════════════════ */
-/* STICKY HEADER — Deep navy, flag's Chakra depth         */
+/* STICKY HEADER — Light background, clean look           */
 /* ═══════════════════════════════════════════════════════ */
 .site-header {
   position: sticky;
   top: 0;
-  background: rgba(3, 4, 26, 0.97);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   /* Bottom saffron line — connects to the saffron top bar */
@@ -84,12 +84,12 @@
   padding: 0 2rem;
 }
 
-/* Brand: Saffron → White → Green — the flag in three words */
+/* Brand: Saffron → Navy → Green — the flag in three words */
 .brand-logo {
   font-size: 1.45rem;
   font-weight: 900;
   text-decoration: none;
-  background: linear-gradient(90deg, #FF9933 0%, #ffffff 50%, #138808 100%);
+  background: linear-gradient(90deg, #FF9933 0%, #000080 50%, #138808 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -102,10 +102,10 @@
   align-items: center;
 }
 
-/* Nav links — light on dark nav */
+/* Nav links — dark text on light bg */
 .main-nav>a,
 .main-nav>.nav-item-dropdown>a {
-  color: rgba(240, 237, 232, 0.85);
+  color: rgba(26, 26, 46, 0.8);
   font-weight: 500;
   transition: color 0.2s ease;
   font-size: 0.95rem;
@@ -126,8 +126,8 @@
   top: calc(100% + 12px);
   left: 50%;
   transform: translateX(-50%) translateY(8px);
-  background: #05060f;
-  border: 1px solid rgba(255, 153, 51, 0.25);
+  background: #ffffff;
+  border: 1px solid rgba(255, 153, 51, 0.2);
   border-top: 3px solid var(--saffron);
   border-radius: 12px;
   padding: 0.8rem;
@@ -138,7 +138,7 @@
   opacity: 0;
   visibility: hidden;
   transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 153, 51, 0.08);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1), 0 0 30px rgba(255, 153, 51, 0.05);
 }
 
 @media (min-width: 901px) {
@@ -159,8 +159,8 @@
 }
 
 .dropdown-panel a:hover {
-  background: rgba(255, 153, 51, 0.1);
-  color: var(--saffron);
+  background: rgba(255, 153, 51, 0.08);
+  color: var(--saffron-dim);
 }
 
 /* ═══════════════════════════════════════════════════════ */
@@ -188,7 +188,7 @@
     transform: translateX(100%);
     width: 100%;
     height: 100vh;
-    background: #030418;
+    background: #ffffff;
     flex-direction: column;
     justify-content: center;
     align-items: center;

@@ -6,7 +6,14 @@ import EventCard from '../components/ui/EventCard';
 import './Events.css'; 
 import './KnowledgeCentre.css'; 
 
-const EVENT_CATEGORIES = ['All', 'Conferences', 'Meetups', 'Workshop', 'Competition'];
+// Display label → URL param value
+const EVENT_CATEGORIES: { label: string; value: string }[] = [
+  { label: 'All', value: 'All' },
+  { label: 'Conferences', value: 'Conference' },
+  { label: 'Meetups', value: 'Meetup' },
+  { label: 'Workshops', value: 'Workshop' },
+  { label: 'Competitions', value: 'Competition' },
+];
 
 export default function Events() {
   const [events, setEvents] = useState<DroneEvent[]>([]);
@@ -51,11 +58,11 @@ export default function Events() {
     }
   }, [searchParams]);
 
-  const handleFilterChange = (category: string) => {
-    if (category === 'All') {
+  const handleFilterChange = (value: string) => {
+    if (value === 'All') {
       setSearchParams({});
     } else {
-      setSearchParams({ type: category });
+      setSearchParams({ type: value });
     }
   };
 
@@ -81,13 +88,13 @@ export default function Events() {
       </p>
       
       <div id="filter-target" className="filter-container">
-        {EVENT_CATEGORIES.map(category => (
+        {EVENT_CATEGORIES.map(({ label, value }) => (
           <button 
-            key={category}
-            className={`filter-btn ${activeFilter === category ? 'active' : ''}`}
-            onClick={() => handleFilterChange(category)}
+            key={value}
+            className={`filter-btn ${activeFilter === value ? 'active' : ''}`}
+            onClick={() => handleFilterChange(value)}
           >
-            {category}
+            {label}
           </button>
         ))}
       </div>

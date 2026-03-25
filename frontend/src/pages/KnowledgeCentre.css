@@ -28,8 +28,8 @@
 }
 
 .filter-btn.active {
-  background-color: var(--text-primary);
-  color: var(--bg-main);
-  border-color: var(--text-primary);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  background-color: var(--saffron);
+  color: #160800;
+  border-color: var(--saffron);
+  box-shadow: 0 4px 12px rgba(255, 153, 51, 0.2);
 }

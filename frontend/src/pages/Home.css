@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════════ */
-/* HOME PAGE — Cohesive Indian Flag Design System                      */
-/* Flag colors expressed through ACCENTS, not page-paint              */
+/* HOME PAGE — Light Indian Flag Design System                        */
+/* Flag colors as accents on a clean, bright background               */
 /* ═══════════════════════════════════════════════════════════════════ */
 
 /* ─── HERO ────────────────────────────────────────────────────────── */
@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 2rem;
+  padding: 0;
   overflow: hidden;
 }
 
@@ -29,12 +29,12 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  /* Rich cinematic overlay — warms at top (saffron), cools at bottom (navy) */
+  /* Soft light overlay — subtle warmth, keeps video visible */
   background:
     linear-gradient(to bottom,
-      rgba(24, 12, 0, 0.72) 0%,
-      rgba(8, 10, 16, 0.55) 45%,
-      rgba(4, 8, 20, 0.80) 100%);
+      rgba(255, 255, 255, 0.10) 0%,
+      rgba(248, 247, 244, 0.15) 45%,
+      rgba(248, 247, 244, 0.40) 100%);
 }
 
 /* Subtle tricolor ambient glow — saffron left, green right */
@@ -45,8 +45,8 @@
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 40% 60% at 0% 50%, rgba(255, 153, 51, 0.09) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 100% 50%, rgba(19, 136, 8, 0.07) 0%, transparent 70%);
+    radial-gradient(ellipse 40% 60% at 0% 50%, rgba(255, 153, 51, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 100% 50%, rgba(19, 136, 8, 0.06) 0%, transparent 70%);
 }
 
 .hero-content {
@@ -63,7 +63,7 @@
 
 .hero-subtitle {
   font-size: clamp(1.05rem, 2vw, 1.3rem);
-  color: rgba(238, 234, 228, 0.7);
+  color: rgba(26, 26, 46, 0.7);
   margin-bottom: 3rem;
   max-width: 640px;
   margin-left: auto;
@@ -72,7 +72,13 @@
   font-weight: 300;
 }
 
+/* ─── HERO BUTTONS (on video, at bottom) ──────────────────────────── */
 .hero-buttons {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
   display: flex;
   gap: 1rem;
   justify-content: center;
@@ -91,40 +97,37 @@
   letter-spacing: 0.02em;
   text-decoration: none;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 20px rgba(255, 153, 51, 0.3);
+  box-shadow: 0 4px 20px rgba(255, 153, 51, 0.25);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  background: #ffb050;
-  box-shadow: 0 8px 30px rgba(255, 153, 51, 0.45);
+  background: #e88520;
+  box-shadow: 0 8px 30px rgba(255, 153, 51, 0.35);
 }
 
 /* Secondary: Green ghost — India's third color */
 .btn-secondary {
   background: transparent;
-  color: rgba(238, 234, 228, 0.85);
-  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+  border: 1.5px solid rgba(0, 0, 0, 0.15);
   padding: 0.9rem 2.4rem;
   border-radius: 6px;
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
   transition: all 0.25s ease;
-  backdrop-filter: blur(8px);
 }
 
 .btn-secondary:hover {
   border-color: var(--india-green);
-  color: #b8ffb0;
-  background: rgba(19, 136, 8, 0.12);
-  box-shadow: 0 8px 24px rgba(19, 136, 8, 0.2);
+  color: var(--india-green);
+  background: rgba(19, 136, 8, 0.06);
+  box-shadow: 0 8px 24px rgba(19, 136, 8, 0.12);
   transform: translateY(-2px);
 }
 
-/* ─── SECTIONS — UNIFIED BACKGROUND ──────────────────────────────── */
-/* No abrupt color blocks. Sections share the same dark BG.           */
-/* Flag identity comes from left-border accent + heading color.       */
+/* ─── SECTIONS — UNIFIED LIGHT BACKGROUND ────────────────────────── */
 .focus-section {
   padding: 7rem 2rem;
   background: var(--bg-main);
@@ -168,7 +171,7 @@
   border-radius: 3px;
   background: linear-gradient(90deg,
       #FF9933 0%, #FF9933 33%,
-      #f0ede8 33%, #f0ede8 66%,
+      #d0cdc6 33%, #d0cdc6 66%,
       #138808 66%, #138808 100%);
 }
 
@@ -187,7 +190,7 @@
   }
 }
 
-/* Card — rich surface, saffron left-side accent stripe */
+/* Card — clean surface, saffron left-side accent stripe */
 .focus-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
@@ -207,16 +210,16 @@
   right: -30px;
   width: 120px;
   height: 120px;
-  background: radial-gradient(circle, rgba(255, 153, 51, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 153, 51, 0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .focus-card:hover {
   transform: translateY(-4px);
   border-left-color: var(--saffron);
-  border-color: rgba(255, 153, 51, 0.25);
+  border-color: rgba(255, 153, 51, 0.3);
   box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.5),
+    0 12px 32px rgba(0, 0, 0, 0.08),
     0 0 0 1px rgba(255, 153, 51, 0.12);
 }
 
@@ -233,7 +236,7 @@
 }
 
 .focus-card:nth-child(even) .focus-icon {
-  color: var(--india-green-light);
+  color: var(--india-green);
 }
 
 .focus-card:nth-child(even) {
@@ -241,13 +244,13 @@
 }
 
 .focus-card:nth-child(even)::before {
-  background: radial-gradient(circle, rgba(19, 136, 8, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(19, 136, 8, 0.06) 0%, transparent 70%);
 }
 
 .focus-card:nth-child(even):hover {
-  border-color: rgba(19, 136, 8, 0.25);
+  border-color: rgba(19, 136, 8, 0.3);
   box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.5),
+    0 12px 32px rgba(0, 0, 0, 0.08),
     0 0 0 1px rgba(19, 136, 8, 0.12);
 }
 
@@ -267,26 +270,24 @@
 }
 
 /* ─── FEATURED EVENTS ─────────────────────────────────────────────── */
-/* Sits on same bg, differentiated by a top-line gradient accent      */
 .featured-events-wrapper {
   padding: 7rem 2rem 8rem;
   background: var(--bg-surface);
-  /* Slightly lighter than main — subtle lift */
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
   position: relative;
   overflow: hidden;
 }
 
-/* Saffron ambient bleed from left, green from right — flag in the air */
+/* Saffron ambient bleed from left, green from right */
 .featured-events-wrapper::before {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 35% 80% at -5% 50%, rgba(255, 153, 51, 0.05) 0%, transparent 70%),
-    radial-gradient(ellipse 35% 80% at 105% 50%, rgba(19, 136, 8, 0.05) 0%, transparent 70%);
+    radial-gradient(ellipse 35% 80% at -5% 50%, rgba(255, 153, 51, 0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 35% 80% at 105% 50%, rgba(19, 136, 8, 0.04) 0%, transparent 70%);
 }
 
 .featured-events-inner {
@@ -306,7 +307,7 @@
 @media (max-width: 768px) {
   .hero-section {
     min-height: 75vh;
-    padding: 0 1rem;
+    padding: 0;
   }
 
   .hero-content h1 {
@@ -322,10 +323,12 @@
   .hero-buttons {
     flex-direction: column;
     gap: 0.85rem;
+    bottom: 2rem;
+    width: 80%;
   }
 
-  .btn-primary,
-  .btn-secondary {
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary {
     width: 100%;
     text-align: center;
     padding: 0.95rem 1.5rem;

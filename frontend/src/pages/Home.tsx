@@ -32,8 +32,7 @@ export default function Home() {
     <div>
       {/* 1. Cinematic Hero Banner */}
       <section className="hero-section">
-        {/* NEW: The Background Video */}
-        {/* Replace "hero-bg.mp4" with the exact name of your video file */}
+        {/* Background Video */}
         <video 
           autoPlay 
           loop 
@@ -44,7 +43,7 @@ export default function Home() {
           <source src="/hero-bg.mp4" type="video/mp4" />
         </video>
 
-        {/* NEW: A dark overlay to ensure text is always readable */}
+        {/* A light overlay to soften the video */}
         <div className="hero-overlay"></div>
 
         <div className="hero-content">
@@ -52,10 +51,12 @@ export default function Home() {
           <p className="hero-subtitle">
             
           </p>
-          <div className="hero-buttons">
-            <Link to="/about" className="btn-primary">Explore Our Mission</Link>
-            <Link to="/contact" className="btn-secondary">Join the Ecosystem</Link>
-          </div>
+        </div>
+
+        {/* CTA Buttons — At the bottom of the video */}
+        <div className="hero-buttons">
+          <Link to="/about" className="btn-primary">Explore Our Mission</Link>
+          <Link to="/contact" className="btn-secondary">Join the Ecosystem</Link>
         </div>
       </section>
 
