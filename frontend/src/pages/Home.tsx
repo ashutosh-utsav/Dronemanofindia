@@ -52,8 +52,10 @@ export default function Home() {
             
           </p>
         </div>
+      </section>
 
-        {/* CTA Buttons — At the bottom of the video */}
+      {/* CTA Buttons — After the video */}
+      <section className="hero-buttons-section">
         <div className="hero-buttons">
           <Link to="/about" className="btn-primary">Explore Our Mission</Link>
           <Link to="/contact" className="btn-secondary">Join the Ecosystem</Link>
